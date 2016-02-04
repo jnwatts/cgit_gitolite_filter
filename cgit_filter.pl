@@ -25,8 +25,6 @@ if ($repo eq "" or $repo eq "/" or repo_missing( $repo )) {
 }
 
 if ($perm =~ /DNE/) {
-    open(my $fh, '>', '/tmp/cgit');
-
     my $doc = HTML::TreeBuilder->new();
     $doc->ignore_ignorable_whitespace(0);
     $doc->no_space_compacting(1);
@@ -100,8 +98,6 @@ if ($perm =~ /DNE/) {
     print "\n";
 
     print $doc->as_HTML;
-
-    close($fh);
 } elsif($perm =~ /R/) {
     system($ENV{CGIT_BIN});
 } else {
