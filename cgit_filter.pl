@@ -6,6 +6,7 @@ BEGIN {
 	$ENV{GL_BINDIR} = "/opt/gitolite/src";
 	$ENV{GL_LIBDIR} = "$ENV{GL_BINDIR}/lib";
 	$ENV{GL_USER} = $ENV{"REMOTE_USER"} || "gitweb";
+	$ENV{GL_USER} = lc $ENV{GL_USER};
 }
 
 unshift @INC, $ENV{GL_LIBDIR};
